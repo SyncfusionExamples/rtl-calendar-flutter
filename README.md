@@ -33,10 +33,10 @@ body: Directionality(
 
 **Screenshots**
 
-![day](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img1.jpeg)
-![week](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img2.jpeg)
-![workweek](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img3.jpeg)
-![month](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img4.jpeg)
-![timeline day](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img5.jpeg)
-![timeline week](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img6.jpeg)
-![timeline work week](http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img7.jpeg)
+<img alt="day"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img1.jpeg" width="250" height="400" />|
+<img alt="week"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img2.jpeg" width="250" height="400" />|
+<img alt="workweek"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img3.jpeg" width="250" height="400" />|
+<img alt="month"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img4.jpeg" width="250" height="400" />|
+<img alt="timeline day"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img5.jpeg" width="250" height="400" />|
+<img alt="timeline week"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img6.jpeg" width="250" height="400" />|
+<img alt="timeline work week"  src="http://www.syncfusion.com/uploads/user/kb/flut/flut-838/flut-838_img7.jpeg" width="250" height="400" />|
