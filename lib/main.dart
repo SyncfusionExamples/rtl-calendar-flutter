@@ -31,53 +31,18 @@ List<String> views = <String>[
 ];
 
 class _CalendarDirectionState extends State<CalendarDirection> {
-  CalendarView _calendarView;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    _calendarView = CalendarView.week;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: PopupMenuButton<String>(
-            icon: Icon(Icons.calendar_today),
-            itemBuilder: (BuildContext context) => views.map((String choice) {
-              return PopupMenuItem<String>(
-                value: choice,
-                child: Text(choice),
-              );
-            }).toList(),
-            onSelected: (String value) {
-              setState(() {
-                if (value == 'Day') {
-                  _calendarView = CalendarView.day;
-                } else if (value == 'Week') {
-                  _calendarView = CalendarView.week;
-                } else if (value == 'WorkWeek') {
-                  _calendarView = CalendarView.workWeek;
-                } else if (value == 'Month') {
-                  _calendarView = CalendarView.month;
-                } else if (value == 'Timeline Day') {
-                  _calendarView = CalendarView.timelineDay;
-                } else if (value == 'Timeline Week') {
-                  _calendarView = CalendarView.timelineWeek;
-                } else if (value == 'Timeline WorkWeek') {
-                  _calendarView = CalendarView.timelineWorkWeek;
-                }
-              });
-            },
-          ),
         ),
         body: Directionality(
           textDirection: TextDirection.rtl,
           child: Scaffold(
             body: SfCalendar(
-              view: _calendarView,
+              view:  CalendarView.week,
               dataSource: getCalendarDataSource(),
               monthViewSettings: MonthViewSettings(showAgenda: true),
             ),
