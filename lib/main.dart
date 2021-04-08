@@ -3,48 +3,35 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() => runApp(WorkingDirection());
 
-class WorkingDirection extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: CalendarDirection(),
-    );
-  }
-}
-
-class CalendarDirection extends StatefulWidget {
+class WorkingDirection extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _CalendarDirectionState();
 }
 
-List<String> views = <String>[
-  'Day',
-  'Week',
-  'WorkWeek',
-  'Month',
-  'Timeline Day',
-  'Timeline Week',
-  'Timeline WorkWeek'
-];
-
-class _CalendarDirectionState extends State<CalendarDirection> {
-
-
+class _CalendarDirectionState extends State<WorkingDirection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-        ),
-        body: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Scaffold(
-            body: SfCalendar(
-              view:  CalendarView.week,
-              dataSource: getCalendarDataSource(),
-              monthViewSettings: MonthViewSettings(showAgenda: true),
+        body: SafeArea(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Scaffold(
+              body: SfCalendar(
+                view: CalendarView.week,
+                allowedViews: [
+                  CalendarView.day,
+                  CalendarView.week,
+                  CalendarView.workWeek,
+                  CalendarView.month,
+                  CalendarView.timelineDay,
+                  CalendarView.timelineWeek,
+                  CalendarView.timelineWorkWeek,
+                  CalendarView.timelineMonth,
+                  CalendarView.schedule
+                ],
+                dataSource: getCalendarDataSource(),
+                monthViewSettings: MonthViewSettings(showAgenda: true),
+              ),
             ),
           ),
         ));
