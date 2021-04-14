@@ -3,83 +3,35 @@ import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() => runApp(WorkingDirection());
 
-class WorkingDirection extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: CalendarDirection(),
-    );
-  }
-}
-
-class CalendarDirection extends StatefulWidget {
+class WorkingDirection extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _CalendarDirectionState();
 }
 
-List<String> views = <String>[
-  'Day',
-  'Week',
-  'WorkWeek',
-  'Month',
-  'Timeline Day',
-  'Timeline Week',
-  'Timeline WorkWeek'
-];
-
-class _CalendarDirectionState extends State<CalendarDirection> {
-  CalendarView _calendarView;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _calendarView = CalendarView.week;
-    super.initState();
-  }
-
+class _CalendarDirectionState extends State<WorkingDirection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: PopupMenuButton<String>(
-            icon: Icon(Icons.calendar_today),
-            itemBuilder: (BuildContext context) => views.map((String choice) {
-              return PopupMenuItem<String>(
-                value: choice,
-                child: Text(choice),
-              );
-            }).toList(),
-            onSelected: (String value) {
-              setState(() {
-                if (value == 'Day') {
-                  _calendarView = CalendarView.day;
-                } else if (value == 'Week') {
-                  _calendarView = CalendarView.week;
-                } else if (value == 'WorkWeek') {
-                  _calendarView = CalendarView.workWeek;
-                } else if (value == 'Month') {
-                  _calendarView = CalendarView.month;
-                } else if (value == 'Timeline Day') {
-                  _calendarView = CalendarView.timelineDay;
-                } else if (value == 'Timeline Week') {
-                  _calendarView = CalendarView.timelineWeek;
-                } else if (value == 'Timeline WorkWeek') {
-                  _calendarView = CalendarView.timelineWorkWeek;
-                }
-              });
-            },
-          ),
-        ),
-        body: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Scaffold(
-            body: SfCalendar(
-              view: _calendarView,
-              dataSource: getCalendarDataSource(),
-              monthViewSettings: MonthViewSettings(showAgenda: true),
+        body: SafeArea(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Scaffold(
+              body: SfCalendar(
+                view: CalendarView.week,
+                allowedViews: [
+                  CalendarView.day,
+                  CalendarView.week,
+                  CalendarView.workWeek,
+                  CalendarView.month,
+                  CalendarView.timelineDay,
+                  CalendarView.timelineWeek,
+                  CalendarView.timelineWorkWeek,
+                  CalendarView.timelineMonth,
+                  CalendarView.schedule
+                ],
+                dataSource: getCalendarDataSource(),
+                monthViewSettings: MonthViewSettings(showAgenda: true),
+              ),
             ),
           ),
         ));
