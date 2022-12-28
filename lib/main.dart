@@ -1,40 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-void main() => runApp(WorkingDirection());
-
-class WorkingDirection extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _CalendarDirectionState();
+void main() {
+  runApp(const MyApp());
 }
 
-class _CalendarDirectionState extends State<WorkingDirection> {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'WorkDirection Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'WorkDirection'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: Scaffold(
-              body: SfCalendar(
-                view: CalendarView.week,
-                allowedViews: [
-                  CalendarView.day,
-                  CalendarView.week,
-                  CalendarView.workWeek,
-                  CalendarView.month,
-                  CalendarView.timelineDay,
-                  CalendarView.timelineWeek,
-                  CalendarView.timelineWorkWeek,
-                  CalendarView.timelineMonth,
-                  CalendarView.schedule
-                ],
-                dataSource: getCalendarDataSource(),
-                monthViewSettings: MonthViewSettings(showAgenda: true),
-              ),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SafeArea(
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Scaffold(
+            body: SfCalendar(
+              view: CalendarView.week,
+              allowedViews: const [
+                CalendarView.day,
+                CalendarView.week,
+                CalendarView.workWeek,
+                CalendarView.month,
+                CalendarView.timelineDay,
+                CalendarView.timelineWeek,
+                CalendarView.timelineWorkWeek,
+                CalendarView.timelineMonth,
+                CalendarView.schedule
+              ],
+              dataSource: getCalendarDataSource(),
+              monthViewSettings: const MonthViewSettings(showAgenda: true),
             ),
           ),
-        ));
+        ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 
   _DataSource getCalendarDataSource() {
